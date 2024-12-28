@@ -17,6 +17,7 @@ def run_requirements():
 
 def main():
     # Create threads for Flask and Streamlit
+    run_requirements()
     flask_thread = threading.Thread(target=run_flask)
     streamlit_thread = threading.Thread(target=run_streamlit)
 
