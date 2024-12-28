@@ -1,0 +1,1 @@
+streamlit run BSSens_app.py
