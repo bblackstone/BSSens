@@ -9,15 +9,6 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# Email configuration
-SMTP_SERVER = 'smtp.gmail.com'
-SMTP_PORT = 587
-SMTP_USERNAME = 'your_email@gmail.com'
-SMTP_PASSWORD = 'your_password'  # Or use an App Password if 2-Step Verification is enabled
-EMAIL_FROM = 'elme@gmail.com'
-EMAIL_TO = 'recipient_email@example.com'
-EMAIL_SUBJECT = 'Sensor Alert'
-
 # Define database setup
 def create_db():
     conn = sqlite3.connect('sensor_data.db')
@@ -56,7 +47,7 @@ def insert_data(temperature, humidity):
 # Flask route to fetch DHT11 sensor data and store in database
 @app.route('/data', methods=['GET'])
 def get_data():
-    if os.name == 'nt':  # Check if the OS is Windows
+    if os.name == 'nt' or os.name='posix':  # Check if the OS is Windows
         # Return mock data for development on Windows
         humidity, temperature = 50.0, 22.0
     else:
