@@ -12,6 +12,9 @@ def run_flask():
 def run_streamlit():
     subprocess.run("streamlit run BSSens_app.py", shell=True)
 
+def run_requirements():
+    subprocess.run("pip install -r requirements.txt", shell=True)
+
 def main():
     # Create threads for Flask and Streamlit
     flask_thread = threading.Thread(target=run_flask)
