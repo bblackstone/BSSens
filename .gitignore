@@ -1,0 +1,15 @@
+# Ignore the sensor_data.db file
+sensor_data.db
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore other files and directories
+*.log
+*.tmp
+.DS_Store
