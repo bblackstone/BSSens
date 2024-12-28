@@ -43,17 +43,16 @@ def insert_data(temperature, humidity):
     conn.commit()
     conn.close()
 
-    
 # Flask route to fetch DHT11 sensor data and store in database
 @app.route('/data', methods=['GET'])
 def get_data():
-    if os.name == 'nt' or os.name='posix':  # Check if the OS is Windows
-        # Return mock data for development on Windows
+    if os.name == 'nt' or os.name == 'posix':  # Check if the OS is Windows or POSIX-compliant
+        # Return mock data for development on Windows or macOS/Linux
         humidity, temperature = 50.0, 22.0
     else:
         import Adafruit_DHT
         sensor = Adafruit_DHT.DHT11
-        pin = 4 # Port in the Ruspberry PI3 which is connected with the sensor DHT11
+        pin = 4  # Port in the Raspberry Pi3 which is connected with the sensor DHT11
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
     if humidity is not None and temperature is not None:
