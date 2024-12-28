@@ -1,1 +1,1 @@
-streamlit run BSSens_app.py
+streamlit run ./BSSens_app.py
