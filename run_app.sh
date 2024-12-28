@@ -1,1 +1,3 @@
-python.exe ./app.py
+#!/bin/bash
+# run_app.sh
+python app.py
